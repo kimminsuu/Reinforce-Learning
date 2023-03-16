@@ -241,7 +241,7 @@ print("=========================================================================
 
 if __name__ == "__main__":
     ################################### Training ###################################
-    env_name = "spectrum_env"
+    env_name = "######"
 
     env_nums = 8
     update_num = env_nums // 2
@@ -404,10 +404,9 @@ if __name__ == "__main__":
     time_step = 0
     i_episode = 0
 
-
     sensing_num = 2048
     for i in range(env_nums) :
-        env[i].connect()
+        ############
         
     #model = Squeeze().to(device)
     result_log = list()
@@ -419,7 +418,7 @@ if __name__ == "__main__":
         for i in range(env_nums) :
             time.sleep(0.5)
             current_ep_reward = 0
-            env[i].reset(1200000)
+            ############
             input_state = []
 
             sensings = 0
@@ -457,12 +456,7 @@ if __name__ == "__main__":
                 for j in range(len(state)) :
                     input_state.pop(0)
                     input_state.append(state[j])
-                    
-                #if reward < 0 :
-                #    reward = (reward / 4) + reward * (3/4) * (time_step / max_training_timesteps)
-                #else :
-                #    reward = (reward * 3) - reward * 2 * (time_step / max_training_timesteps)
-                
+
                 # saving reward and is_terminals
                 ppo_agent.buffer.rewards.append(reward)
                 ppo_agent.buffer.is_terminals.append(done)
